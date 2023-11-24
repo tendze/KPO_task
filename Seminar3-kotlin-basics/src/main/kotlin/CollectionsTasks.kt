@@ -13,14 +13,18 @@ fun replaceElements(array: List<String>): List<String> {
  *  (1 балл)
  */
 fun uniqueWords(text: String): Int {
-    return 0
+    val textArr: List<String> = text.split(" ")
+    var wordsCountMap = mutableMapOf<String, Int>()
+
+
+
 }
 
 // Используйте эту функцию для запуска кода
 // Раскомментируйте нужные участки в процессе реализации
 fun main() {
-    //val text = ""
-    //println(uniqueWords(text))
+    val text = readlnOrNull()
+    println(text?.let { uniqueWords(it) })
 
     // Вызвать для text и вывести результат замены на экран
     //replaceElements()
