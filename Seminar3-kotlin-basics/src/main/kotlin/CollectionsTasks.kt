@@ -3,7 +3,20 @@
  *  (1 балл)
  */
 fun replaceElements(array: List<String>): List<String> {
-    return listOfNotNull()
+    val wordsCountMap = mutableMapOf<String, Int>()
+    for (word in array) {
+        wordsCountMap[word] = wordsCountMap.getOrDefault(word, 0) + 1
+    }
+
+    val result = mutableListOf<String>()
+    for (i in array.indices) {
+        result += if (wordsCountMap[array[i]] != 1) {
+            "blahblah"
+        } else {
+            array[i]
+        }
+    }
+    return result
 }
 
 
@@ -14,9 +27,19 @@ fun replaceElements(array: List<String>): List<String> {
  */
 fun uniqueWords(text: String): Int {
     val textArr: List<String> = text.split(" ")
-    var wordsCountMap = mutableMapOf<String, Int>()
+    val wordsCountMap = mutableMapOf<String, Int>()
+    var uniqueCount = 0
+    for (word in textArr) {
+        wordsCountMap[word] = wordsCountMap.getOrDefault(word, 0) + 1
+    }
 
+    for (count in wordsCountMap.values) {
+        if (count == 1) {
+            uniqueCount += 1
+        }
+    }
 
+    return uniqueCount
 
 }
 
@@ -27,5 +50,7 @@ fun main() {
     println(text?.let { uniqueWords(it) })
 
     // Вызвать для text и вывести результат замены на экран
-    //replaceElements()
+    if (text != null) {
+        print(replaceElements(text.split(" ")))
+    }
 }

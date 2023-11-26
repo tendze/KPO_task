@@ -1,3 +1,4 @@
+import kotlin.math.sqrt
 
 /**
     Задание 1: Функция,спрашивающая у пользователя его ФИО и выводящая его на экране.
@@ -9,14 +10,17 @@
         "
  */
 fun askForInput() {
-
+    println("Введите вашу фамилию, имя и отчество (каждое с новой строки)")
+    val fio = listOf(readln(), readln(), readln())
+    println("Фамилия: %s\nИмя: %s\nОтчество: %s".format(*fio.toTypedArray()))
 }
 
 /**
     Задание 2: Функция, вычисляющая и возвращающая корни квадратного уравнения. (1 балл)
  */
 fun quadraticRoots(a: Double, b: Double, c: Double): Pair<Double, Double> {
-    return 0.0 to 0.0
+    var D: Double = b*b - 4*a*c
+    return (-b+sqrt(D))/(2*a) to (-b-sqrt(D))/(2*a)
 }
 
 /**
@@ -24,7 +28,9 @@ fun quadraticRoots(a: Double, b: Double, c: Double): Pair<Double, Double> {
     (2 балла)
  */
 fun printSameDigitNumbers() {
-
+    for (i in 111 until 1000 step 111) {
+        println(i)
+    }
 }
 
 // Используйте эту функцию для запуска кода
